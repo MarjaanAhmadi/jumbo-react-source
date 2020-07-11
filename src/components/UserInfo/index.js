@@ -5,12 +5,14 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {userSignOut} from 'actions/Auth';
 import IntlMessages from 'util/IntlMessages';
+import UserInfoDetails from './userInfoDetails';
 
 class UserInfo extends React.Component {
 
   state = {
     anchorEl: null,
     open: false,
+    userData: {}
   };
 
   handleClick = event => {
@@ -21,6 +23,7 @@ class UserInfo extends React.Component {
     this.setState({open: false});
   };
 
+
   render() {
     return (
       <div className="user-profile d-flex flex-row align-items-center">
@@ -29,11 +32,7 @@ class UserInfo extends React.Component {
           src={'https://via.placeholder.com/150x150'}
           className="user-avatar "
         />
-        <div className="user-detail">
-          <h4 className="user-name" onClick={this.handleClick}>Robert Johnson <i
-            className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"/>
-          </h4>
-        </div>
+        <UserInfoDetails handleClick={(event) => {this.handleClick(event)}}/>
         <Menu className="user-info"
               id="simple-menu"
               anchorEl={this.state.anchorEl}

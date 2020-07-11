@@ -50,13 +50,16 @@ const RestrictedRoute = ({component: Component, authUser, ...rest}) =>
     {...rest}
     render={props =>
       authUser
-        ? <Component {...props} />
-        : <Redirect
+        ? 
+        <Component {...props} />
+        :
+         <Redirect
           to={{
             pathname: '/signin',
             state: {from: props.location}
           }}
-        />}
+        />
+      }
   />;
 
 class App extends Component {
@@ -159,8 +162,9 @@ class App extends Component {
     if (location.pathname === '/') {
       if (authUser === null) {
         return ( <Redirect to={'/signin'}/> );
-      } else if (initURL === '' || initURL === '/' || initURL === '/signin') {
-        return ( <Redirect to={'/app/dashboard/crypto'}/> );
+      } else 
+      if (initURL === '' || initURL === '/' || initURL === '/signin') {
+        return ( <Redirect to={'/app/dashboard/users'}/> );
       } else {
         return ( <Redirect to={initURL}/> );
       }

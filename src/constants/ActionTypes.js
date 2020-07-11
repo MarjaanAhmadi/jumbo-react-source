@@ -1,3 +1,10 @@
+
+export const SET_USERS = 'set_users'
+export const SET_USER_DATA = 'set_user_data'
+export const SET_AIRLINES = 'set_airlines'
+export const SET_AIRCRAFTS = 'set_aircrafts'
+
+
 // Customizer const
 export const TOGGLE_COLLAPSED_NAV = 'toggle_collapse_menu';
 export const DRAWER_TYPE = 'drawer_type';

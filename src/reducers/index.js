@@ -6,9 +6,10 @@ import Contact from './Contact';
 import Mail from './Mail';
 import ToDo from './ToDo';
 import Auth from './Auth';
+import Users from './Users';
 
 
-export default (history) => combineReducers({
+const reducers = (history) => combineReducers({
   router: connectRouter(history),
   settings: Settings,
   chatData: ChatData,
@@ -16,4 +17,6 @@ export default (history) => combineReducers({
   mail: Mail,
   toDo: ToDo,
   auth: Auth,
+  users: Users
 });
+export default reducers;

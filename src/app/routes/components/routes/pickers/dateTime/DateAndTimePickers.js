@@ -1,17 +1,13 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {DateTimePicker} from 'material-ui-pickers';
+import moment from 'moment';
+const DateAndTimePickers = (props) => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
-export default class DateAndTimePickers extends Component {
-  state = {
-    selectedDate: new Date(),
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    props.setPublishedTime(date);
   };
-
-  handleDateChange = (date) => {
-    this.setState({selectedDate: date});
-  };
-
-  render() {
-    const {selectedDate} = this.state;
 
     return (
       <div key="datetime_default" className="picker">
@@ -20,10 +16,10 @@ export default class DateAndTimePickers extends Component {
           fullWidth
           value={selectedDate}
           showTabs={false}
-          onChange={this.handleDateChange}
+          onChange={handleDateChange}
           leftArrowIcon={<i className="zmdi zmdi-arrow-back"/>}
           rightArrowIcon={<i className="zmdi zmdi-arrow-forward"/>}
         />
       </div>)
-  }
 }
+export default DateAndTimePickers;

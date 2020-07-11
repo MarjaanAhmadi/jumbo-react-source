@@ -141,7 +141,7 @@ class ChatPanelWithRedux extends Component {
                  className="avatar avatar-shadow rounded-circle size-60 huge" alt="John Doe"/>
           </div>
 
-          <div className="user-name h4 my-2 text-white">Robert Johnson</div>
+          <div className="user-name h4 my-2 text-white">test Johnson</div>
 
         </div>
       </div>

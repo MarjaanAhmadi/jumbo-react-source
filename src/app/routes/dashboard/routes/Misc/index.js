@@ -77,7 +77,7 @@ class Misc extends React.Component {
     const {anchorEl, menuState} = this.state;
     return (
       <div className="dashboard animated slideInUpTiny animation-duration-3">
-        <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.dashboard"/>}/>
+        <ContainerHeader match={this.props.match} title={<IntlMessages id="sidebar.settings"/>}/>
 
         <div className="row">
           <div className="col-xl-5 col-12">

@@ -94,28 +94,54 @@ class Menu extends Component {
                 <span className="nav-link">
                   <i className="zmdi zmdi-view-dashboard zmdi-hc-fw"/>
                   <span className="nav-text">
-                                        <IntlMessages id="sidebar.dashboard"/>
+                                        <IntlMessages id="sidebar.settings.manageAcount"/>
                                     </span>
                 </span>
                 <ul className="sub-menu">
                   <li>
                     <NavLink className="prepend-icon" to="/app/dashboard/crypto">
-                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.crypto"/></span>
+                      <span className="nav-text"><IntlMessages id="sidebar.settings.generalSettings"/></span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink className="prepend-icon" to="/app/dashboard/listing">
-                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.listing"/></span>
+                      <span className="nav-text"><IntlMessages id="sidebar.settings.privilages"/></span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink className="prepend-icon" to="/app/dashboard/crm">
-                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.crm"/></span>
+                      <span className="nav-text"><IntlMessages id="sidebar.settings.documentsSetup"/></span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="prepend-icon" to="/app/dashboard/users">
+                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.users"/></span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="prepend-icon" to="/app/dashboard/legs">
+                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.legs"/></span>
+                    </NavLink>
+                  </li>
+                  
+                  <li>
+                    <NavLink className="prepend-icon" to="/app/dashboard/notifications">
+                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.notifications"/></span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="prepend-icon" to="/app/dashboard/airlines">
+                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.airlines"/></span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="prepend-icon" to="/app/dashboard/aircrafts">
+                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.aircrafts"/></span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink className="prepend-icon" to="/app/dashboard/intranet">
-                      <span className="nav-text"><IntlMessages id="sidebar.dashboard.intranet"/></span>
+                      <span className="nav-text"><IntlMessages id="sidebar.settings.documentsManager"/></span>
                     </NavLink>
                   </li>
                   <li>

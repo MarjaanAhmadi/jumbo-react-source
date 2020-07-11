@@ -7,6 +7,11 @@ const Dashboard = ({match}) => (
     <Switch>
       <Redirect exact from={`${match.url}/`} to={`${match.url}/crm`}/>
       <Route path={`${match.url}/crm`} component={asyncComponent(() => import('./routes/CRM'))}/>
+      <Route path={`${match.url}/users`} component={asyncComponent(() => import('./routes/Users'))}/>
+      <Route path={`${match.url}/legs`} component={asyncComponent(() => import('./routes/Legs'))}/>
+      <Route path={`${match.url}/notifications`} component={asyncComponent(() => import('./routes/Notifications'))}/>
+      <Route path={`${match.url}/airlines`} component={asyncComponent(() => import('./routes/airlines'))}/>
+      <Route path={`${match.url}/aircrafts`} component={asyncComponent(() => import('./routes/aircrafts'))}/>
       <Route path={`${match.url}/listing`} component={asyncComponent(() => import('./routes/Listing'))}/>
       <Route path={`${match.url}/crypto`} component={asyncComponent(() => import('./routes/Crypto'))}/>
       <Route path={`${match.url}/eCommerce`} component={asyncComponent(() => import('./routes/ECommerce'))}/>

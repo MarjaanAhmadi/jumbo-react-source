@@ -73,47 +73,38 @@ class Header extends React.Component {
     return (
       <ul className="jr-list jr-list-half">
         <li className="jr-list-item">
-          <Link className="jr-list-link" to="/app/calendar/basic">
+          <Link className="jr-list-link" to="/app/dashboard/users">
             <i className="zmdi zmdi-calendar zmdi-hc-fw"/>
-            <span className="jr-list-text"><IntlMessages id="sidebar.calendar.basic"/></span>
+            <span className="jr-list-text"><IntlMessages id="sidebar.dashboard.users"/></span>
           </Link>
         </li>
 
         <li className="jr-list-item">
-          <Link className="jr-list-link" to="/app/to-do">
+          <Link className="jr-list-link" to="/app/dashboard/notifications">
             <i className="zmdi zmdi-check-square zmdi-hc-fw"/>
-            <span className="jr-list-text"><IntlMessages id="sidebar.appModule.toDo"/></span>
+            <span className="jr-list-text"><IntlMessages id="sidebar.dashboard.notifications"/></span>
+          </Link>
+        </li>
+        <li className="jr-list-item">
+          <Link className="jr-list-link" to="/app/dashboard/airlines">
+            <i className="zmdi zmdi-check-square zmdi-hc-fw"/>
+            <span className="jr-list-text"><IntlMessages id="sidebar.dashboard.airlines"/></span>
+          </Link>
+        </li>
+        <li className="jr-list-item">
+          <Link className="jr-list-link" to="/app/dashboard/aircrafts">
+            <i className="zmdi zmdi-check-square zmdi-hc-fw"/>
+            <span className="jr-list-text"><IntlMessages id="sidebar.dashboard.aircrafts"/></span>
           </Link>
         </li>
 
         <li className="jr-list-item">
-          <Link className="jr-list-link" to="/app/mail">
+          <Link className="jr-list-link" to="/app/dashboard/legs">
             <i className="zmdi zmdi-email zmdi-hc-fw"/>
-            <span className="jr-list-text"><IntlMessages id="sidebar.appModule.mail"/></span>
+            <span className="jr-list-text"><IntlMessages id="sidebar.dashboard.legs"/></span>
           </Link>
         </li>
-
-        <li className="jr-list-item">
-          <Link className="jr-list-link" to="/app/chat">
-            <i className="zmdi zmdi-comment zmdi-hc-fw"/>
-            <span className="jr-list-text"><IntlMessages id="sidebar.appModule.chat"/></span>
-          </Link>
-        </li>
-
-        <li className="jr-list-item">
-          <Link className="jr-list-link" to="/app/contact">
-            <i className="zmdi zmdi-account-box zmdi-hc-fw"/>
-            <span className="jr-list-text"><IntlMessages id="sidebar.appModule.contact"/></span>
-          </Link>
-        </li>
-
-        <li className="jr-list-item">
-          <Link className="jr-list-link" to="/">
-            <i className="zmdi zmdi-plus-circle-o zmdi-hc-fw"/>
-            <span className="jr-list-text">Add New</span>
-          </Link>
-        </li>
-      </ul>)
+        </ul>)
   };
 
   constructor() {

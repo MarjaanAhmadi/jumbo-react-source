@@ -22,8 +22,8 @@ class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: 'demo@example.com',
-      password: 'demo#123',
+      email: 'marjan.ahmadi',
+      password: '1234%4321',
       error:false,
       errormes:'',
       loader:false
@@ -43,18 +43,17 @@ class SignIn extends React.Component {
         url: basUrl+ 'token-auth',
         data: Data
       }).then(function (response) {
-        if(response.data.error == null){
-          localStorage.setItem('user_id', response.data.result.related_user._id)
-          localStorage.setItem('token', response.data.result.token)
+        if(response.data.error === false){
+           
+          localStorage.setItem('user_id', response.data.message._id);
+          localStorage.setItem('token', response.data.message.token);
           window.location.reload(false)
           self.setState({loader:false})
           console.log(response)
-        }else {
-          self.setState({error: true, errormes: response.data.error, loader: false})
-          console.log(response)
         }
       }).catch(function (error) {
-
+          
+        self.setState({error: true, errormes: error.response.data.error, loader: false})
       })
 
   }
