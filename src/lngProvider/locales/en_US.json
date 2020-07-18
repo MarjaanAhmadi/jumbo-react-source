@@ -109,6 +109,7 @@
   "sidebar.eCommerce.productsList": "Products List",
   "sidebar.eCommerce.productsGrid": "Products Grid",
   "sidebar.appModule": "App Module",
+  "sidebar.appModule.userManagement": "UserManagement",
   "sidebar.appModule.login1": "Login Page 1",
   "sidebar.appModule.login2": "Login Page 2",
   "sidebar.appModule.loginStepper": "Login with Stepper",

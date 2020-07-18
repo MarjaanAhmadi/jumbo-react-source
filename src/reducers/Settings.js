@@ -12,24 +12,29 @@ import {
   VERTICAL_NAVIGATION,
   WINDOW_WIDTH,
 } from "constants/ActionTypes";
+import LanguageData from "../components/LanguageSwitcher/data";
 import { DARK_INDIGO } from "constants/ThemeColors";
 
 const rltLocale = ["fa", "ar"];
+const selectedLanguageId = localStorage.getItem("langId");
+const currentLanguage = selectedLanguageId
+  ? LanguageData.find((l) => l.locale == selectedLanguageId)
+  : {
+      languageId: "farsi",
+      locale: "fa",
+      name: "Farsi",
+      icon: "ir",
+    };
 const initialSettings = {
   navCollapsed: false,
   drawerType: FIXED_DRAWER,
   themeColor: DARK_INDIGO,
   darkTheme: false,
   width: window.innerWidth,
-  isDirectionRTL: true,
+  isDirectionRTL: rltLocale.includes(currentLanguage.locale),
   navigationStyle: VERTICAL_NAVIGATION,
   horizontalNavPosition: INSIDE_THE_HEADER,
-  locale: {
-    languageId: "farsi",
-    locale: "fa",
-    name: "Farsi",
-    icon: "ir",
-  },
+  locale: currentLanguage,
 };
 
 const settings = (state = initialSettings, action) => {

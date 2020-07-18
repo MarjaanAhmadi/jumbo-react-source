@@ -110,6 +110,15 @@ class SidenavContent extends Component {
             <IntlMessages id="sidebar.main" />
           </li>
 
+          <li className="menu no-arrow">
+            <NavLink to="/app/user-management">
+              <i className="zmdi zmdi-email zmdi-hc-fw" />
+              <span className="nav-text">
+                <IntlMessages id="sidebar.appModule.userManagement" />
+              </span>
+            </NavLink>
+          </li>
+
           <li className="menu collapse-box">
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />

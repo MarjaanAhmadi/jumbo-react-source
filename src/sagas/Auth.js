@@ -151,8 +151,8 @@ function* signInUserWithEmailPassword({ payload }) {
     if (signInUser.message && signInUser.error === true) {
       yield put(showAuthMessage(signInUser.message));
     } else {
-      localStorage.setItem("user_id", signInUser.user.uid);
-      yield put(userSignInSuccess(signInUser.user.uid));
+      localStorage.setItem("token", signInUser.token);
+      yield put(userSignInSuccess(signInUser.token));
     }
   } catch (error) {
     yield put(showAuthMessage(error));
@@ -163,7 +163,7 @@ function* signOut() {
   try {
     const signOutUser = yield call(signOutRequest);
     if (signOutUser === undefined) {
-      localStorage.removeItem("user_id");
+      localStorage.removeItem("token");
       yield put(userSignOutSuccess(signOutUser));
     } else {
       yield put(showAuthMessage(signOutUser.message));

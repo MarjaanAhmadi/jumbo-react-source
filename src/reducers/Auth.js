@@ -18,7 +18,7 @@ const INIT_STATE = {
   alertMessage: "",
   showMessage: false,
   initURL: "",
-  authUser: localStorage.getItem("user_id"),
+  authUser: localStorage.getItem("token"),
 };
 
 export default (state = INIT_STATE, action) => {
