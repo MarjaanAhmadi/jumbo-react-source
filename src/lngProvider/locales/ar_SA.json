@@ -155,7 +155,7 @@
   "appModule.reset": "إعادة تعيين",
   "appModule.loginSuccessfully": "تسجيل الدخول بنجاح",
   "appModule.password": "كلمه السر",
-  "appModule.email": "البريد الإلكتروني",
+  "appModule.username": "یوزنیم",
   "appModule.name": "اسم",
   "appModule.phone": "هاتف",
   "appModule.designation": "تعيين",
@@ -190,7 +190,7 @@
   "eCommerce.buyNow": "اشتري الآن",
   "extension.sweetAlerts": "تنبيهات حلوة",
   "extension.notification": "إعلام",
-  "sweetAlerts.basic": "الأساسية",
+  "sweetAlerts.basic": "تسسستتتت",
   "sweetAlerts.description": "مع الوصف",
   "sweetAlerts.success": "نجاح",
   "sweetAlerts.warning": "تحذير",
@@ -560,5 +560,6 @@
   "sidebar.dashboard.crypto": "التشفير",
   "sidebar.dashboard.listing": "قوائم",
   "sidebar.classic": "كلاسيكي",
-  "sidebar.modern": "حديث"
+  "sidebar.modern": "حديث",
+  "sidebar.inbuiltapp": "تسسست"
 }

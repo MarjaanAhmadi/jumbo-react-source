@@ -1,13 +1,17 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import IntlMessages from 'util/IntlMessages';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import axios from 'axios'
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import TextField from "@material-ui/core/TextField";
+// import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import IntlMessages from "util/IntlMessages";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import LogoContent from "../assets/styles/signIn.css";
+import "../api/AuthApi";
 import {
   hideMessage,
   showAuthLoader,
@@ -15,187 +19,160 @@ import {
   userGithubSignIn,
   userGoogleSignIn,
   userSignIn,
-  userTwitterSignIn
-} from 'actions/Auth';
+  userTwitterSignIn,
+} from "actions/Auth";
 
 class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: 'demo@example.com',
-      password: 'demo#123',
-      error:false,
-      errormes:'',
-      loader:false
-    }
-  }
-
-  async login(){
-      this.setState({loader:true})
-      var basUrl='https://enrouteservice.com/api/'
-      var Data={
-        username:this.state.email,
-        password:this.state.password
-      }
-      var self = this
-      await axios({
-        method: 'post',
-        url: basUrl+ 'token-auth',
-        data: Data
-      }).then(function (response) {
-        if(response.data.error == null){
-          localStorage.setItem('user_id', response.data.result.related_user._id)
-          localStorage.setItem('token', response.data.result.token)
-          window.location.reload(false)
-          self.setState({loader:false})
-          console.log(response)
-        }else {
-          self.setState({error: true, errormes: response.data.error, loader: false})
-          console.log(response)
-        }
-      }).catch(function (error) {
-
-      })
-
+      username: "demo",
+      password: "demo#123",
+      loader: false,
+    };
   }
 
   componentDidUpdate() {
-    if (this.state.error) {
+    if (this.props.showMessage) {
       setTimeout(() => {
-        this.setState({error:false})
-      }, 100);
+        this.props.hideMessage();
+      }, 3000);
     }
-    if (localStorage.getItem(('token'))!=null) {
-      this.props.history.push('/');
+    if (localStorage.getItem("token") != null) {
+      this.props.history.push("/");
     }
   }
 
   render() {
-    const {
-      email,
-      password
-    } = this.state;
-    //const {showMessage, loader, alertMessage} = this.props;
+    const { username, password } = this.state;
+    const { showMessage, loader, alertMessage } = this.props;
     return (
-      <div
-        className="app-login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
+      <div className="app-login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
         <div className="app-login-main-content">
-
-          <div className="app-logo-content d-flex align-items-center justify-content-center">
-            <Link className="logo-lg" to="/" title="Jambo">
-              <img src={require("assets/images/logo.png")} alt="jambo" title="jambo"/>
-            </Link>
-          </div>
+          <div className="app-logo-content d-flex align-items-center justify-content-center Mine-logo-content"></div>
 
           <div className="app-login-content">
             <div className="app-login-header mb-4">
-              <h1><IntlMessages id="appModule.email"/></h1>
+              <h1>
+                <IntlMessages id="appModule.signin" />
+              </h1>
             </div>
 
             <div className="app-login-form">
               <form>
                 <fieldset>
                   <TextField
-                    label={<IntlMessages id="appModule.email"/>}
+                    label={<IntlMessages id="appModule.username" />}
                     fullWidth
-                    onChange={(event) => this.setState({email: event.target.value})}
-                    defaultValue={email}
+                    onChange={(event) =>
+                      this.setState({ username: event.target.value })
+                    }
+                    defaultValue={username}
                     margin="normal"
                     className="mt-1 my-sm-3"
                   />
                   <TextField
                     type="password"
-                    label={<IntlMessages id="appModule.password"/>}
+                    label={<IntlMessages id="appModule.password" />}
                     fullWidth
-                    onChange={(event) => this.setState({password: event.target.value})}
+                    onChange={(event) =>
+                      this.setState({ password: event.target.value })
+                    }
                     defaultValue={password}
                     margin="normal"
                     className="mt-1 my-sm-3"
                   />
 
                   <div className="mb-3 d-flex align-items-center justify-content-between">
-                    <Button onClick={() => {
-                      //this.props.showAuthLoader();
-                      //this.props.userSignIn({email, password});
-                      this.login()
-                    }} variant="contained" color="primary">
-                      <IntlMessages id="appModule.signIn"/>
+                    <Button
+                      onClick={() => {
+                        this.props.showAuthLoader();
+                        this.props.userSignIn({ username, password });
+                        // this.login();
+                      }}
+                      variant="contained"
+                      color="primary"
+                    >
+                      <IntlMessages id="appModule.signIn" />
                     </Button>
 
-                    <Link to="/signup">
-                      <IntlMessages id="signIn.signUp"/>
-                    </Link>
+                    {/* <Link to="/signup">
+                      <IntlMessages id="signIn.signUp" />
+                    </Link> */}
                   </div>
 
-                  <div className="app-social-block my-1 my-sm-3">
-                    <IntlMessages
-                      id="signIn.connectWith"/>
+                  {/* <div className="app-social-block my-1 my-sm-3">
+                    <IntlMessages id="signIn.connectWith" />
                     <ul className="social-link">
                       <li>
-                        <IconButton className="icon"
-                                    onClick={() => {
-                                      this.props.showAuthLoader();
-                                      this.props.userFacebookSignIn();
-                                    }}>
-                          <i className="zmdi zmdi-facebook"/>
+                        <IconButton
+                          className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userFacebookSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-facebook" />
                         </IconButton>
                       </li>
 
                       <li>
-                        <IconButton className="icon"
-                                    onClick={() => {
-                                      this.props.showAuthLoader();
-                                      this.props.userTwitterSignIn();
-                                    }}>
-                          <i className="zmdi zmdi-twitter"/>
+                        <IconButton
+                          className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userTwitterSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-twitter" />
                         </IconButton>
                       </li>
 
                       <li>
-                        <IconButton className="icon"
-                                    onClick={() => {
-                                      this.props.showAuthLoader();
-                                      this.props.userGoogleSignIn();
-
-                                    }}>
-                          <i className="zmdi zmdi-google-plus"/>
+                        <IconButton
+                          className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userGoogleSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-google-plus" />
                         </IconButton>
                       </li>
 
                       <li>
-                        <IconButton className="icon"
-                                    onClick={() => {
-                                      this.props.showAuthLoader();
-                                      this.props.userGithubSignIn();
-                                    }}>
-                          <i className="zmdi zmdi-github"/>
+                        <IconButton
+                          className="icon"
+                          onClick={() => {
+                            this.props.showAuthLoader();
+                            this.props.userGithubSignIn();
+                          }}
+                        >
+                          <i className="zmdi zmdi-github" />
                         </IconButton>
                       </li>
                     </ul>
-                  </div>
-
+                  </div> */}
                 </fieldset>
               </form>
             </div>
           </div>
-
         </div>
-        {
-          this.state.loader &&
+        {this.state.loader && (
           <div className="loader-view">
-            <CircularProgress/>
+            <CircularProgress />
           </div>
-        }
-        {this.state.error && NotificationManager.error(this.state.errormes)}
-        <NotificationContainer/>
+        )}
+        {showMessage && NotificationManager.error(alertMessage)}
+        <NotificationContainer />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({auth}) => {
-  const {loader, alertMessage, showMessage, authUser} = auth;
-  return {loader, alertMessage, showMessage, authUser}
+const mapStateToProps = ({ auth }) => {
+  const { loader, alertMessage, showMessage, authUser } = auth;
+  return { loader, alertMessage, showMessage, authUser };
 };
 
 export default connect(mapStateToProps, {
@@ -205,5 +182,5 @@ export default connect(mapStateToProps, {
   userFacebookSignIn,
   userGoogleSignIn,
   userGithubSignIn,
-  userTwitterSignIn
+  userTwitterSignIn,
 })(SignIn);

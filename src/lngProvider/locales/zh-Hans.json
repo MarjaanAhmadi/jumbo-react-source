@@ -155,7 +155,7 @@
   "appModule.reset": "重启",
   "appModule.loginSuccessfully": "成功登录",
   "appModule.password": "密码",
-  "appModule.email": "电子邮件",
+  "appModule.username": "电子邮件",
   "appModule.name": "名称",
   "appModule.phone": "电话",
   "appModule.designation": "指定",

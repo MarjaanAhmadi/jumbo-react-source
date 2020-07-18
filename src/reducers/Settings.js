@@ -10,89 +10,84 @@ import {
   THEME_COLOR,
   TOGGLE_COLLAPSED_NAV,
   VERTICAL_NAVIGATION,
-  WINDOW_WIDTH
-} from 'constants/ActionTypes';
-import {DARK_INDIGO} from 'constants/ThemeColors';
+  WINDOW_WIDTH,
+} from "constants/ActionTypes";
+import { DARK_INDIGO } from "constants/ThemeColors";
 
-const rltLocale = ['ar'];
+const rltLocale = ["fa", "ar"];
 const initialSettings = {
   navCollapsed: false,
   drawerType: FIXED_DRAWER,
   themeColor: DARK_INDIGO,
   darkTheme: false,
   width: window.innerWidth,
-  isDirectionRTL: false,
+  isDirectionRTL: true,
   navigationStyle: VERTICAL_NAVIGATION,
   horizontalNavPosition: INSIDE_THE_HEADER,
   locale: {
-    languageId: 'english',
-    locale: 'en',
-    name: 'English',
-    icon: 'us'
-  }
+    languageId: "farsi",
+    locale: "fa",
+    name: "Farsi",
+    icon: "ir",
+  },
 };
 
 const settings = (state = initialSettings, action) => {
   switch (action.type) {
-    case '@@router/LOCATION_CHANGE':
+    case "@@router/LOCATION_CHANGE":
       return {
         ...state,
-        navCollapsed: false
+        navCollapsed: false,
       };
     case TOGGLE_COLLAPSED_NAV:
       return {
         ...state,
-        navCollapsed: action.isNavCollapsed
+        navCollapsed: action.isNavCollapsed,
       };
     case DRAWER_TYPE:
       return {
         ...state,
-        drawerType: action.drawerType
+        drawerType: action.drawerType,
       };
     case WINDOW_WIDTH:
       return {
         ...state,
-        width: action.width
+        width: action.width,
       };
     case THEME_COLOR:
       return {
         ...state,
         darkTheme: false,
-        themeColor: action.color
+        themeColor: action.color,
       };
     case DARK_THEME:
       return {
         ...state,
-        darkTheme: !state.darkTheme
+        darkTheme: !state.darkTheme,
       };
     case SWITCH_LANGUAGE:
-
       return {
         ...state,
         locale: action.payload,
-        isDirectionRTL: rltLocale.includes(action.payload.locale)
-
+        isDirectionRTL: rltLocale.includes(action.payload.locale),
       };
     case CHANGE_DIRECTION:
       return {
         ...state,
-        isDirectionRTL: !state.isDirectionRTL
-
+        isDirectionRTL: !state.isDirectionRTL,
       };
 
     case CHANGE_NAVIGATION_STYLE:
       return {
         ...state,
-        navigationStyle: action.payload
+        navigationStyle: action.payload,
       };
-
 
     case HORIZONTAL_MENU_POSITION:
       return {
         ...state,
-        horizontalNavPosition: action.payload
+        horizontalNavPosition: action.payload,
       };
-
 
     default:
       return state;

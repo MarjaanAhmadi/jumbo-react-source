@@ -155,7 +155,7 @@
   "appModule.reset": "Reiniciar",
   "appModule.loginSuccessfully": "Iniciar sesión exitosamente",
   "appModule.password": "Contraseña",
-  "appModule.email": "Email",
+  "appModule.username": "Username",
   "appModule.name": "Nombre",
   "appModule.phone": "Teléfono",
   "appModule.designation": "Designacion",
