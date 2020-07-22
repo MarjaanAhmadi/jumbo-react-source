@@ -1,9 +1,10 @@
-import {all} from 'redux-saga/effects';
-import mailSagas from './Mail';
-import toDoSagas from './Todo';
-import contactSagas from './Contact';
-import chatSagas from './Chat';
-import authSagas from './Auth';
+import { all } from "redux-saga/effects";
+import mailSagas from "./Mail";
+import toDoSagas from "./Todo";
+import contactSagas from "./Contact";
+import chatSagas from "./Chat";
+import authSagas from "./Auth";
+import userManagement from "./UserManagement";
 
 export default function* rootSaga(getState) {
   yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga(getState) {
     toDoSagas(),
     contactSagas(),
     chatSagas(),
-    authSagas()
+    authSagas(),
+    userManagement(),
   ]);
 }
